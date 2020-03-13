@@ -1,0 +1,81 @@
+body{
+    /*font-family: 'Bitter', serif;*/
+    font-family: 'Ubuntu', sans-serif;
+    /*background: rgba(0, 0, 0, 0.9);*/
+    /*color: rgba(34,66,179,0.9);*/
+    background: rgb(73,81,117);
+}
+
+.bg-dark {
+    /*background: rgba(150, 165, 171, 0.9) !important;*/
+    background: rgba(255, 193, 7, 0.9) !important;
+}
+
+.bg-card-orcamento{
+    background: rgba(255, 193, 7, 1);
+}
+
+.bg-card-orcamento-interno{
+    /*background-color: rgba(255, 240, 143, 0.7)*/
+    /*background-color: #424B54;*/
+    background-color: rgb(73,81,117);
+    color: #fff !important;
+}
+
+.bg-card-orcamento-interno input {
+    color: #fff !important;
+}
+
+.bg-card-orcamento-interno textarea {
+    color: #fff !important;
+}
+
+.container-sol-orcamento {
+    color: #fff !important;
+}
+
+.container-sol-orcamento input{
+    color: #fff !important;
+}
+
+.card-orcamento{
+    /*background: rgba(255, 218, 115, 0.9) !important;*/
+    background: rgba(150, 165, 171, 0.9) !important;
+    color: white;
+    /*color: rgba(34,66,179,0.9);*/
+}
+
+.card-visualiza-orcamento{
+    /*background: rgba(255, 218, 115, 0.9) !important;*/
+    /*background: rgba(206, 222, 228, 0.9) !important;*/
+    background: white;
+    color: black;
+    /*color: rgba(34,66,179,0.9);*/
+}
+
+.text-muted {
+    color: white !important;
+}
+
+.label-visualiza-orcamento {
+    /*margin-left: 1rem;*/
+    /*margin-top: 1rem;*/
+    /*margin-right: 1rem;*/
+    /*margin-bottom: 1rem;*/
+
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.imagem-exemplo{
+    max-width: 50%;
+    height: auto;
+}
+
+@media print {
+    .container {
+        width: auto;
+    }
+}
