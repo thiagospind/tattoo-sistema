@@ -38,6 +38,10 @@ body{
     color: #fff !important;
 }
 
+.container-sol-orcamento textarea{
+    color: #fff !important;
+}
+
 .card-orcamento{
     /*background: rgba(255, 218, 115, 0.9) !important;*/
     background: rgba(150, 165, 171, 0.9) !important;
@@ -72,6 +76,30 @@ body{
 .imagem-exemplo{
     max-width: 50%;
     height: auto;
+}
+
+.parte_corpo option{
+    color: #000;
+}
+
+input::-webkit-input-placeholder {
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input:-ms-input-placeholder {
+    color: white !important;
+    opacity: 0.9 !important;
 }
 
 @media print {

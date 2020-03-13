@@ -41,7 +41,7 @@
 
                         <div class="form-group col-sm-4">
                             <label for="parte_corpo">*Parte do Corpo</label>
-                            <select class="form-control parte_corpo {{ $errors->has('parte_corpo') ? 'is-invalid' : '' }} bg-transparent"
+                            <select class="form-control parte_corpo {{ $errors->has('parte_corpo') ? 'is-invalid' : '' }} bg-transparent text-white"
                                     name="parte_corpo" id="parte_corpo">
                                 <option value="">Selecione...</option>
                                 <option value="Antebraço" {{old('parte_corpo') === 'Antebraço' ? 'selected' : ''}}>Antebraço</option>
@@ -114,6 +114,18 @@
                             <label for="arquivo">Selecione uma imagem de referência (Tamanho máximo de 5mb).</label>
                             <input type="file" class="form-control-file bg-transparent" id="arquivo" name="arquivo">
                         </div>
+                        {{--<div class="custom-file">--}}
+                            {{--<input type="file" class="custom-file-input bg-transparent {{ $errors->has('arquivo') ? 'is-invalid' : '' }} "--}}
+                                   {{--id="validatedCustomFile" name="arquivo">--}}
+                            {{--<label class="custom-file-label" for="validatedCustomFile" data-browse="Procurar">--}}
+                                {{--Selecione o arquivo...--}}
+                            {{--</label>--}}
+                            {{--@if($errors->has('arquivo'))--}}
+                                {{--<div class=" {{$errors->has('arquivo') ? 'invalid-feedback' : ''}}">{{$errors->first('arquivo')}}</div>--}}
+                            {{--@endif--}}
+                            {{--<div class="">Example invalid custom file feedback</div>--}}
+                            {{--<small>Selecione o arquivo de participação / opcional de plano de saúde.</small>--}}
+                        {{--</div>--}}
                     </div>
 
                     <div class="form-group">
