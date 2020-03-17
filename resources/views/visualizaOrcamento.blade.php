@@ -43,7 +43,7 @@
                                 <div class="card bg-card-orcamento ">
                                     <div class="form-row no-gutters">
                                         <div class="form-group col-4">
-                                            <img src="{{ asset('/storage/'.$orc->imagem_exemplo) }}" class="card-img bg-transparent">
+                                            <img src="{{ asset('/app/public/'.$orc->imagem_exemplo) }}" class="card-img bg-transparent">
                                         </div>
 
                                         <div class="form-group col-8">

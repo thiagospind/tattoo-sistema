@@ -21,6 +21,17 @@ Route::post('/orcamento','ControladorOrcamento@store');
 Route::get('/orcamentos','ControladorOrcamento@index');
 Route::post('/orcamentos/salvar','ControladorOrcamento@update');
 Route::any('/orcamento/pesquisar','ControladorOrcamento@pesquisar');
+
+Route::get('/usuario','ControladorUsuario@create');
+Route::get('/usuarios','ControladorUsuario@index');
+Route::post('/usuario','ControladorUsuario@store');
+Route::post('/usuario/editar','ControladorUsuario@update');
+Route::get('/usuario/editar/{idUsuario}','ControladorUsuario@show');
+Route::get('/usuario/excluir/{idUsuario}','ControladorUsuario@destroy');
+
+Route::get('/redirect', function(){
+   return view('redirect');
+});
 //Route::group(['middleware'=>['auth']],function(){
 //});
 

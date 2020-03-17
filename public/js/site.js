@@ -8,6 +8,8 @@ $(document).ready(function () {
         }
     })
 
+    $("#overlay").css({ display: "block" });
+
     $('.telefone').blur( function (e) {
         let tamanho = $(this).val().length
 

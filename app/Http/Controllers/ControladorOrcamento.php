@@ -44,41 +44,48 @@ class ControladorOrcamento extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nome' => 'required|max:255',
-            'telefone' => 'required|numeric',
-            'email' => 'email|nullable',
-            'parte_corpo' => 'required',
-            'outra_parte' => 'required_if:parte_corpo,Outra',
-            'tamanho' => 'required',
-            'cor' => 'required',
-            'arquivo' => 'nullable|image|max:5120',
-            'descricao' => 'required|string',
-            'status' => 'Novo'
-        ]);
+        try {
+            $request->validate([
+                'nome' => 'required|max:255',
+                'telefone' => 'required|numeric',
+                'email' => 'email|nullable',
+                'parte_corpo' => 'required',
+                'outra_parte' => 'required_if:parte_corpo,Outra',
+                'tamanho' => 'required',
+                'cor' => 'required',
+                'arquivo' => 'nullable|image|max:5120',
+                'descricao' => 'required|string',
+                'status' => 'Novo'
+            ]);
 
-        $arquivo = $request->file('arquivo');
+            $arquivo = $request->file('arquivo');
 
-        $orcamento = new Orcamento();
+            $orcamento = new Orcamento();
 
-        $orcamento->nome = $request->nome;
-        $orcamento->telefone = $request->telefone;
-        $orcamento->email = $request->email;
-        $orcamento->tamanho_tattoo = $request->tamanho;
-        $orcamento->parte_corpo = $request->parte_corpo;
-        $orcamento->outra_parte = $request->outra_parte;
-        $orcamento->cor = $request->cor;
-        $orcamento->descricao = $request->descricao;
-        if(isset($arquivo)){
-            $path = $request->file('arquivo')->store('exemplos');
-            $orcamento->imagem_exemplo = $path;
+            $orcamento->nome = $request->nome;
+            $orcamento->telefone = $request->telefone;
+            $orcamento->email = $request->email;
+            $orcamento->tamanho_tattoo = $request->tamanho;
+            $orcamento->parte_corpo = $request->parte_corpo;
+            $orcamento->outra_parte = $request->outra_parte;
+            $orcamento->cor = $request->cor;
+            $orcamento->descricao = $request->descricao;
+            if (isset($arquivo)) {
+                $path = $request->file('arquivo')->store('exemplos');
+                $orcamento->imagem_exemplo = $path;
+            }
+            $orcamento->status = 'Novo';
+
+            $orcamento->save();
+            $titulo = 'Seu orçamento foi recebido!';
+            $msg = 'Em breve entraremos em contato com maiores informações sobre a sua tatuagem! 
+                    Muito obrigado pelo contato. Você será redirecionado para a página principal em cinco segundos!';
+            $cor = 'text-white';
+
+            return view('redirect',compact('titulo','msg','cor'));
+        } catch (\Exception $exception){
+
         }
-        $orcamento->status = 'Novo';
-
-        $orcamento->save();
-
-        return redirect('/orcamento');
-
     }
 
     public function update(Request $request){
