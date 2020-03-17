@@ -4,6 +4,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">
 
     <title>May Pinheiro Tattoo - @yield('title')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
