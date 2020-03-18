@@ -29,6 +29,10 @@ Route::post('/usuario/editar','ControladorUsuario@update');
 Route::get('/usuario/editar/{idUsuario}','ControladorUsuario@show');
 Route::get('/usuario/excluir/{idUsuario}','ControladorUsuario@destroy');
 
+Route::get('/home',function (){
+        return view('index');
+});
+
 Route::get('/redirect', function(){
    return view('redirect');
 });

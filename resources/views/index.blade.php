@@ -10,13 +10,13 @@
 
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/park.jpg">
-                        <img src="../images/park.jpg" alt="Park">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/750_5616(1).jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/750_5616.jpg') }}" alt="Trabalhos">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/bridge.jpg">
-                        <img src="../images/bridge.jpg" alt="Bridge">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/81594920_2571936999742499_8548166388743256295_n.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/81594920_2571936999742499_8548166388743256295_n.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4">

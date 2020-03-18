@@ -5,6 +5,7 @@
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
 
     <title>May Pinheiro Tattoo - @yield('title')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -35,7 +36,10 @@
 <script src="{{ asset('js/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.mask.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/mask.js') }}" type="text/javascript"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 
 </body>
 </html>
