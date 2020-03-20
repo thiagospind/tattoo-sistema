@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Solicitação de Orçamentos')
 @section('body')
-    <div class="container container-sol-orcamento mt-5 pt-5">
+    <div class="container container-sol-orcamento">
 {{--        <div class="card card-orcamento mt-3 pt-3">--}}
             <div class="py-3 text-center">
                 <h2>Solicitação de Orçamentos</h2>
