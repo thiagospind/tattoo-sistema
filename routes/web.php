@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/orcamento','ControladorOrcamento@create');
@@ -34,11 +34,14 @@ Route::get('/home',function (){
 });
 
 Route::get('/redirect', function(){
-   return view('redirect');
+    $cor = '';
+    $msg = 'Obrigado por entrar em contato';
+    $titulo = 'Teste';
+    return view('redirect',compact('cor','msg','titulo'));
 });
 //Route::group(['middleware'=>['auth']],function(){
 //});
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

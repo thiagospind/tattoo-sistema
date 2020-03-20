@@ -4,7 +4,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/site.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
 
     <title>May Pinheiro Tattoo - @yield('title')</title>
