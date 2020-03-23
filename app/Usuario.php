@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuario extends Authenticatable
 {
+    protected $table = 'usuarios';
+
     protected $fillable = [
         'nome','telefone','email','senha','nivel','status'
     ];
@@ -15,12 +17,12 @@ class Usuario extends Authenticatable
         'senha', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 }
