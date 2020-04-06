@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Orcamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ControladorOrcamento extends Controller
 {
@@ -33,7 +34,8 @@ class ControladorOrcamento extends Controller
      */
     public function create()
     {
-        return view('solicitaOrcamento');
+        $usuario = Auth::user();
+        return view('orcamento');
     }
 
     /**
@@ -44,7 +46,7 @@ class ControladorOrcamento extends Controller
      */
     public function store(Request $request)
     {
-        try {
+//        try {
             $request->validate([
                 'nome' => 'required|max:255',
                 'telefone' => 'required|numeric',
@@ -83,9 +85,9 @@ class ControladorOrcamento extends Controller
             $cor = 'text-white';
 
             return view('redirect',compact('titulo','msg','cor'));
-        } catch (\Exception $exception){
-
-        }
+//        } catch (\Exception $exception){
+//
+//        }
     }
 
     public function update(Request $request){

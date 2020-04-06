@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orcamento extends Model
 {
-    protected $table = 'solicitacao_orcamento';
+    protected $table = 'orcamentos';
 
 //    public function __get($key)
 //    {

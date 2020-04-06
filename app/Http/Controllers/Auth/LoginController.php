@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -25,21 +28,41 @@ class LoginController extends Controller
         return 'email';
     }
 
-    public function authenticate(Request $request)
+
+
+    public function authenticated(Request $request)
     {
-        $credentials = $request->only('email', 'senha');
+        $credentials = [
+            'email' => $request->email,
+            'senha' => $request->password,
+            'status' => 1
+        ];
+            //$request->only('email', 'senha');
+//        $email = $request->email;
+//        $password = $request->password;
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->intended('/orcamentos');
+            if(!isset(Auth::user()->email_verified_at)){
+                Auth::logout();
+                return redirect('/login')->with('msg','Por favor, confirme o seu email!');
+            }
+
+            return redirect()->intended('/');
+        } else {
+            Auth::logout();
+            return redirect('/');
         }
+
+        $usuario = Auth::user();
+        echo $usuario;
     }
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/orcamentos';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.

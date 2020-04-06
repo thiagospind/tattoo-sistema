@@ -10,48 +10,48 @@
 
             <div class="row">
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="{{ asset('/img/trabalhos/750_5616(1).jpg') }}">
-                        <img src="{{ asset('/img/trabalhos/750_5616.jpg') }}" alt="Trabalhos">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/750_5616 (1).jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/750_5616 (1).jpg') }}" alt="Trabalhos">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="{{ asset('/img/trabalhos/81594920_2571936999742499_8548166388743256295_n.jpg') }}">
-                        <img src="{{ asset('/img/trabalhos/81594920_2571936999742499_8548166388743256295_n.jpg') }}" alt="Bridge">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/750_5637.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/750_5637.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <a class="lightbox" href="../images/tunnel.jpg">
-                        <img src="../images/tunnel.jpg" alt="Tunnel">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/750_5679.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/750_5679.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/coast.jpg">
-                        <img src="../images/coast.jpg" alt="Coast">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_2.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_2.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/rails.jpg">
-                        <img src="../images/rails.jpg" alt="Rails">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_3.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_3.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/traffic.jpg">
-                        <img src="../images/traffic.jpg" alt="Traffic">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_3(2).jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_3(2).jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/rocks.jpg">
-                        <img src="../images/rocks.jpg" alt="Rocks">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_1.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_1.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/benches.jpg">
-                        <img src="../images/benches.jpg" alt="Benches">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_4.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_4.jpg') }}" alt="Bridge">
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4">
-                    <a class="lightbox" href="../images/sky.jpg">
-                        <img src="../images/sky.jpg" alt="Sky">
+                    <a class="lightbox" href="{{ asset('/img/trabalhos/trab_5.jpg') }}">
+                        <img src="{{ asset('/img/trabalhos/trab_5.jpg') }}" alt="Bridge">
                     </a>
                 </div>
             </div>

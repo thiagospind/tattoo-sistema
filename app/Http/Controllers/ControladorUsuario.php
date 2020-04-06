@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmaUsuario;
+use App\Usuario;
+use App\UsuarioSistema;
+use Hashids\Hashids;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class ControladorUsuario extends Controller
 {
@@ -13,7 +19,8 @@ class ControladorUsuario extends Controller
      */
     public function index()
     {
-        //
+        $usuarios = UsuarioSistema::paginate(10)->sortBy('nome');
+        return view('usuarios',compact('usuarios'));
     }
 
     /**
@@ -23,7 +30,7 @@ class ControladorUsuario extends Controller
      */
     public function create()
     {
-        return view('usuario');
+        return view('auth.register');
     }
 
     /**
@@ -34,7 +41,38 @@ class ControladorUsuario extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
+            'telefone' => ['required', 'numeric'],
+            'data_nascimento' => ['required'],
+            'senha' => ['required', 'string', 'min:8', 'confirmed'],
+            'senha_confirmation' => ['required', 'string'],
+            'nivel' => ['required', 'string'],
+        ]);
+
+        $usuario = Usuario::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'senha' => Hash::make($request->senha),
+            'telefone' => $request->telefone,
+            'data_nascimento' => $request->data_nascimento,
+            'nivel' => $request->nivel,
+            'status' => 0
+        ]);
+
+        $hash = new Hashids();
+        $idHash = $hash->encode($usuario->id);
+
+        Mail::to($usuario->email)
+            ->send(new ConfirmaUsuario('temtudovale.site/usuario/confirma/'.$idHash));
+
+
+        $titulo = 'Seu usuário foi cadastrado!';
+        $msg = 'Foi enviado para você um email para ativação do usuário. Acesse para poder solicitar o orçamento!';
+        $cor = 'text-white';
+
+        return view('redirect',compact('titulo','msg','cor'));
     }
 
     /**
@@ -80,5 +118,9 @@ class ControladorUsuario extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function confirmar(Request $request){
+
     }
 }

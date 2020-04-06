@@ -6,11 +6,13 @@
 /*}*/
 
 .container.gallery-container {
-    background-color: #fff;
-    color: #35373a;
+    /*background-color: #fff;*/
+    background-color: transparent;
+    color: white;
     min-height: 100vh;
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    margin-top: 50px;
 }
 
 .gallery-container h1 {

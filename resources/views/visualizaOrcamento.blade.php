@@ -7,7 +7,7 @@
                 <h2>Visualização de Orçamentos</h2>
             </div>
             {{--<div class="card-body">--}}
-                <form action="/orcamento/pesquisar" class="container-sol-orcamento" method="post">
+                <form action="/orcamentos/pesquisar" class="container-sol-orcamento" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <select class="form-control col-sm-8 col-md-6 col-lg-3 bg-transparent btn-outline-light" name="filtro" >

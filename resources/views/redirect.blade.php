@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Solicitação de Orçamentos')
 @section('tipo_meta','refresh')
-@section('meta','5;url={{http://www.google.com/}}')
+@section('meta','5;/')
 @section('body')
     <div class="container mt-5 pt-5">
         <div class="card bg-dark text-white border-0 text-center">

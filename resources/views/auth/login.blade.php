@@ -23,19 +23,32 @@
 <body class="text-center">
 <form class="form-signin" method="post" action="/login">
     @csrf
-    <img class="thumbnail mb-4" src="{{ asset('img/logo_nova.png') }}" alt="" width="70%" height="70%">
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+        @foreach($errors->all() as $err)
+                <li>{{$err}}</li>
+        @endforeach
+        </div>
+    @endif
+    @if(session('msg'))
+        <div class="alert alert-warning" role="alert">
+            {{ session('msg') }}
+        </div>
+    @endif
+    <img class="thumbnail mb-4" src="{{ asset('img/logo_nova_login.png') }}" alt="" width="70%" height="70%">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" class="form-control text-white bg-transparent" placeholder="Email..." required autofocus>
-    <label for="inputPassword" class="sr-only">Senha</label>
-    <input type="password" id="inputPassword" class="form-control text-white bg-transparent" placeholder="Senha..." required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    <label for="email" class="sr-only">Email</label>
+    <input type="email" id="email" name="email" class="form-control text-white bg-transparent" placeholder="Email..." autofocus>
+    <label for="senha" class="sr-only">Senha</label>
+    <input  id="password" name="password" type="password" class="form-control text-white bg-transparent" placeholder="Senha...">
+    <a class="text-white" href="#"><i class="fas fa-key"></i> Esqueci a senha...</a>
+{{--    <div class="checkbox mb-3">--}}
+{{--        <label>--}}
+{{--            <input type="checkbox" value="remember-me"> Remember me--}}
+{{--        </label>--}}
+{{--    </div>--}}
+    <button class="btn btn-primary btn-block mt-2" type="submit">Entrar</button>
+    <p class="mt-5 mb-3 text-muted">&copy;May Pinheiro Tattoo</p>
 </form>
 </body>
 </html>

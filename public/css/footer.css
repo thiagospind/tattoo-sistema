@@ -1,23 +1,32 @@
 /*=========================
   Icons
  ================= */
-* {
-    margin: 0;
-    padding: 0;
-}
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 
 /* footer social icons */
 .footer {
     background-color: rgb(50, 57, 82);
-    /*padding: 20px 0;*/
-    text-align: center;
     position: relative;
+    text-align: center;
     left: 0;
-    bottom: 0;
-    /*height: 80px;*/
+    bottom: 15px;
+    top: 15px;
+    height: 10%;
     width: 100%;
+    /*padding: 20px 0;*/
+    /*text-align: center;*/
+    /*position: relative;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*height: 80px;*/
+    /*width: 100%;*/
     margin-top: 10px;
     padding: 20px 100px;
+
+
 }
 
 ul.social-network {

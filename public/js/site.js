@@ -15,9 +15,15 @@ $(document).ready(function () {
 
         if(tamanho > 10 ){
             $(this).mask('(00) 00000-0000')
+        } else if(tamanho === 0) {
+            $(this).unmask();
         } else {
             $(this).mask('(00) 0000-0000')
         }
+    })
+
+    $('.telefone').focusin(function (e) {
+            $(this).unmask();
     })
     // .length verifica se o campo existe na página
     if($("input[name='telefone']").length) {

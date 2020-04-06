@@ -6,14 +6,16 @@
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/gallery-grid.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-
+    <link rel="shortcut icon" href="{{asset('/img/logo_ico.png')}}" type="image/x-icon">
     <title>May Pinheiro Tattoo - @yield('title')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="@yield('tipo_meta')" content="@yield('meta')">
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Ubuntu&display=swap" rel="stylesheet">
+{{--    <link href="https://fonts.googleapis.com/css?family=Bitter|Ubuntu&display=swap" rel="stylesheet">--}}
+{{--    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/592c96640e.js" crossorigin="anonymous"></script>
 </head>
 <body>

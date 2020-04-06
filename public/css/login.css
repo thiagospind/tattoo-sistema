@@ -49,3 +49,27 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+input::-webkit-input-placeholder {
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+input:-ms-input-placeholder {
+    color: white !important;
+    opacity: 0.9 !important;
+}
+
+.text-muted {
+    color: white !important;
+}

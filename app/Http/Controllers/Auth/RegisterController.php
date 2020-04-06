@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/orcamentos';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,7 +52,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nome' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
+            'telefone' => ['required', 'numeric'],
             'senha' => ['required', 'string', 'min:8', 'confirmed'],
+            'nivel' => ['required', 'string'],
         ]);
     }
 
@@ -67,7 +69,7 @@ class RegisterController extends Controller
         return Usuario::create([
             'nome' => $data['nome'],
             'email' => $data['email'],
-            'senha' => Hash::make($data['password']),
+            'senha' => Hash::make($data['senha']),
             'telefone' => $data['telefone'],
             'nivel' => $data['nivel'],
             'status' => 'novo'
