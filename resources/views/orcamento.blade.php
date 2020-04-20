@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title','Solicitação de Orçamentos')
 @section('body')
-    <div class="container container-sol-orcamento">
+    <div class="wrapper d-flex align-items-stretch container-sol-orcamento">
+        @component('layouts.sidebar')
+        @endcomponent
 {{--        <div class="card card-orcamento mt-3 pt-3">--}}
-
+        <div id="content" class="p-4 p-md-5 pt-5">
             <div class="py-3 text-center">
                 <h2>Solicitação de Orçamentos</h2>
             </div>
@@ -155,6 +157,6 @@
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
+        </div>
 {{--        </div>--}}
-{{--    </div>--}}
 @endsection

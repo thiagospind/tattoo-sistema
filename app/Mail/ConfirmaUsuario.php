@@ -30,11 +30,15 @@ class ConfirmaUsuario extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.confirmaEmail')
+        return $this->view('emails.confirmaEmail')
             ->from('maytattoop@gmail.com')
             ->subject('Confirmação de Email - May Pinheiro Tattoo')
             ->with([
                 'url' => $this->url,
             ]);
+//        ->attach(base_path().'/public/img/logo_nova.png',[
+//                'logo' => 'logo_nova.png',
+//                'mime' => 'image/png'
+//            ]);
     }
 }

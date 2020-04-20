@@ -8,13 +8,13 @@
 
 /* footer social icons */
 .footer {
-    background-color: rgb(50, 57, 82);
+    background-color: rgba(50, 57, 82,0.8);
     position: relative;
     text-align: center;
     left: 0;
-    bottom: 15px;
-    top: 15px;
-    height: 10%;
+    bottom: 0px;
+    /*top: 15px;*/
+    height: 60px;
     width: 100%;
     /*padding: 20px 0;*/
     /*text-align: center;*/
@@ -23,8 +23,9 @@
     /*bottom: 0;*/
     /*height: 80px;*/
     /*width: 100%;*/
-    margin-top: 10px;
-    padding: 20px 100px;
+    /*margin-top: 10px;*/
+    padding-top: 10px;
+    /*padding-bottom: 10px;*/
 
 
 }
@@ -75,14 +76,14 @@ ul.social-network li {
     -webkit-border-radius: 50%;
     border-radius: 50%;
     text-align: center;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     font-size: 22px;
 }
 
 .social-circle li i {
     margin: 0;
-    line-height: 60px;
+    line-height: 40px;
     text-align: center;
 }
 

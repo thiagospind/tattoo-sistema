@@ -2,11 +2,20 @@
 
 namespace App;
 
+use App\Http\Traits\Hashidable;
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Orcamento extends Model
 {
     protected $table = 'orcamentos';
+
+    use Hashidable;
+
+    public function getHashidAttribute(){
+        return Hashids::encode($this->id);
+    }
+
 
 //    public function __get($key)
 //    {

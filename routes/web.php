@@ -11,6 +11,9 @@
 |
 */
 
+use App\Mail\ConfirmaUsuario;
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', function () {
     return view('index');
 });
@@ -28,7 +31,9 @@ Route::get('/usuario/confirmar/{id}','ControladorUsuario@confirmar');
 Route::get('/confirmausuario', function () {
     //$invoice = App\Invoice::find(1);
 
-    return new App\Mail\ConfirmaUsuario('usuario/confirmar/1');
+//    return (new App\Mail\ConfirmaUsuario('usuario/confirmar/1'))->render();
+    Mail::to('thiago_spdvr@hotmail.com')
+        ->send(new ConfirmaUsuario('temtudovale.site/usuario/confirma/1'));
 });
 
 Route::group(['middleware'=>['auth']],function() {
@@ -39,6 +44,7 @@ Route::group(['middleware'=>['auth']],function() {
     Route::get('/usuarios','ControladorUsuario@index');
     Route::post('/usuario/editar','ControladorUsuario@update');
     Route::get('/orcamento','ControladorOrcamento@create');
+    Route::get('/orcamento/lista/{idUsuario}','ControladorOrcamento@listaOrcamento');
     Route::post('/orcamento','ControladorOrcamento@store');
 });
 

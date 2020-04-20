@@ -3,11 +3,10 @@
 @section('body')
     <div class="container gallery-container mt-5 pt-5">
         <div class="py-3 text-center">
-            <h2>Trabalhos</h2>
+            <p class="h1">Trabalhos</p>
         </div>
 
         <div class="tz-gallery">
-
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <a class="lightbox" href="{{ asset('/img/trabalhos/750_5616 (1).jpg') }}">
@@ -55,7 +54,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

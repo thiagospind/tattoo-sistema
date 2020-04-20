@@ -2,7 +2,8 @@ body{
     /*font-family: 'Bitter', serif;*/
     /*font-family: 'Ubuntu', sans-serif;*/
     /*font-family: 'Concert One', cursive;*/
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Asul', sans-serif;
+    /*font-family: 'Cairo', sans-serif;*/
     /*background: rgba(0, 0, 0, 0.9);*/
     /*color: rgba(34,66,179,0.9);*/
     background: rgb(73,81,117);
@@ -98,17 +99,17 @@ option{
 
 input::-webkit-input-placeholder {
     color: white !important;
-    opacity: 0.8 !important;
+    opacity: 0.9 !important;
 }
 
 input:-moz-placeholder { /* Firefox 18- */
     color: white !important;
-    opacity: 0.8 !important;
+    opacity: 0.9 !important;
 }
 
 input::-moz-placeholder {  /* Firefox 19+ */
     color: white !important;
-    opacity: 0.8 !important;
+    opacity: 0.9 !important;
 }
 
 input:-ms-input-placeholder {

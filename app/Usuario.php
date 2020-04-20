@@ -3,30 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Vinkla\Hashids\Facades\Hashids;
 
-class Usuario extends Authenticatable
+
+class Usuario extends Model
 {
-    use Notifiable;
+   protected $table = 'usuarios';
 
-    protected $table = 'usuarios';
-
-    public function getAuthPassword()
-    {
-        return $this->senha;
+    public function hashId(){
+        return Hashids::encode($this->id);
     }
-
-    protected $fillable = [
-        'nome','telefone','email','senha','nivel','status','data_nascimento'
-    ];
-
-    protected $hidden = [
-        'senha', 'remember_token',
-    ];
-
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
 }

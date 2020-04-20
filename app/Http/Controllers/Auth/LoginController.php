@@ -34,7 +34,7 @@ class LoginController extends Controller
     {
         $credentials = [
             'email' => $request->email,
-            'senha' => $request->password,
+            'password' => $request->password,
             'status' => 1
         ];
             //$request->only('email', 'senha');
@@ -42,10 +42,10 @@ class LoginController extends Controller
 //        $password = $request->password;
 
         if (Auth::attempt($credentials)) {
-            if(!isset(Auth::user()->email_verified_at)){
-                Auth::logout();
-                return redirect('/login')->with('msg','Por favor, confirme o seu email!');
-            }
+//            if(!isset(Auth::user()->email_verified_at)){
+//                Auth::logout();
+//                return redirect('/login')->with('msg','Por favor, confirme o seu email!');
+//            }
 
             return redirect()->intended('/');
         } else {

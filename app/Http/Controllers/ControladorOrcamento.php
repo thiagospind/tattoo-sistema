@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Orcamento;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Vinkla\Hashids\Facades\Hashids;
 
 class ControladorOrcamento extends Controller
 {
@@ -32,10 +34,14 @@ class ControladorOrcamento extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $usuario = Auth::user();
-        return view('orcamento');
+        if(Auth::check()){
+            $idUsuario = Hashids::decode($id);
+            $usuario = Usuario::find($idUsuario);
+
+            return view('orcamento');
+        }
     }
 
     /**
@@ -48,9 +54,9 @@ class ControladorOrcamento extends Controller
     {
 //        try {
             $request->validate([
-                'nome' => 'required|max:255',
-                'telefone' => 'required|numeric',
-                'email' => 'email|nullable',
+//                'nome' => 'required|max:255',
+//                'telefone' => 'required|numeric',
+//                'email' => 'email|nullable',
                 'parte_corpo' => 'required',
                 'outra_parte' => 'required_if:parte_corpo,Outra',
                 'tamanho' => 'required',
@@ -64,14 +70,15 @@ class ControladorOrcamento extends Controller
 
             $orcamento = new Orcamento();
 
-            $orcamento->nome = $request->nome;
-            $orcamento->telefone = $request->telefone;
-            $orcamento->email = $request->email;
+//            $orcamento->nome = $request->nome;
+//            $orcamento->telefone = $request->telefone;
+//            $orcamento->email = $request->email;
             $orcamento->tamanho_tattoo = $request->tamanho;
             $orcamento->parte_corpo = $request->parte_corpo;
             $orcamento->outra_parte = $request->outra_parte;
             $orcamento->cor = $request->cor;
             $orcamento->descricao = $request->descricao;
+
             if (isset($arquivo)) {
                 $path = $request->file('arquivo')->store('exemplos');
                 $orcamento->imagem_exemplo = $path;
@@ -136,5 +143,12 @@ class ControladorOrcamento extends Controller
 
         return view('visualizaOrcamento',compact('orcamento','filtro','valor','data_inicio','data_fim'));
 
+    }
+
+    public function listaOrcamento($idUsuario){
+        $orcamentos = Orcamento::where('usuarios_id','=',$idUsuario)
+            ->orderBy('created_at','desc')
+            ->get();
+        return view('listaOrcamento',compact('orcamentos'));
     }
 }

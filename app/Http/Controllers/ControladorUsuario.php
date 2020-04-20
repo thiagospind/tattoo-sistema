@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\ConfirmaUsuario;
 use App\Usuario;
 use App\UsuarioSistema;
-use Hashids\Hashids;
+use Carbon\Carbon;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -61,11 +62,13 @@ class ControladorUsuario extends Controller
             'status' => 0
         ]);
 
-        $hash = new Hashids();
-        $idHash = $hash->encode($usuario->id);
+//        $hash = new Hashids();
+        $idHash = Hashids::connection('main')->encode($usuario->id);
+
+        $url = url('/usuario/confirmar/'.$idHash);
 
         Mail::to($usuario->email)
-            ->send(new ConfirmaUsuario('temtudovale.site/usuario/confirma/'.$idHash));
+            ->send(new ConfirmaUsuario($url));
 
 
         $titulo = 'Seu usuário foi cadastrado!';
@@ -120,7 +123,12 @@ class ControladorUsuario extends Controller
         //
     }
 
-    public function confirmar(Request $request){
-
+    public function confirmar($id){
+        $idDecoded = Hashids::connection('main')->decode($id);
+        $usuario = Usuario::find($idDecoded[0]);
+        if(isset($usuario) && !isset($usuario->email_verified_at)){
+            $usuario->email_verified_at = Carbon::now();
+            $usuario->save();
+        }
     }
 }
