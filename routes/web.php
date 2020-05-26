@@ -43,9 +43,11 @@ Route::group(['middleware'=>['auth']],function() {
     Route::get('/logout','HomeController@logout');
     Route::get('/usuarios','ControladorUsuario@index');
     Route::post('/usuario/editar','ControladorUsuario@update');
-    Route::get('/orcamento','ControladorOrcamento@create');
+    Route::get('/orcamento/{idUsuario}','ControladorOrcamento@create');
     Route::get('/orcamento/lista/{idUsuario}','ControladorOrcamento@listaOrcamento');
     Route::post('/orcamento','ControladorOrcamento@store');
+    Route::get('/usuario/alterarsenha/{idUsuario}','ControladorUsuario@alterarSenha');
+    Route::post('/usuario/alterarsenha','ControladorUsuario@novaSenha');
 });
 
 

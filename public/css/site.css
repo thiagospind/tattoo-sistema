@@ -2,11 +2,19 @@ body{
     /*font-family: 'Bitter', serif;*/
     /*font-family: 'Ubuntu', sans-serif;*/
     /*font-family: 'Concert One', cursive;*/
-    font-family: 'Asul', sans-serif;
+    /*font-family: 'Asul', sans-serif;*/
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+
     /*font-family: 'Cairo', sans-serif;*/
     /*background: rgba(0, 0, 0, 0.9);*/
     /*color: rgba(34,66,179,0.9);*/
     background: rgb(73,81,117);
+}
+
+hr{
+    border-top: 1px solid rgba(201, 201, 201, 0.61);
 }
 
 select{

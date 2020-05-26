@@ -20,32 +20,34 @@
                 <form action="/orcamento" method="post" enctype="multipart/form-data" id="formulario">
                     @csrf
 
-                    <div class="form-group">
-                        <label for="nome">*Nome Completo</label>
-                        <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }} bg-transparent"
-                               name="nome" id="nome" value="{{ old('nome') }}">
-                        @if($errors->has('nome'))
-                            <div class=" {{$errors->has('nome') ? 'invalid-feedback' : ''}}">{{$errors->first('nome')}}</div>
-                        @endif
-                    </div>
+                    <input name="usuarios_id" id="usuarios_id" value="{{ $idHash }}" hidden>
 
-                    <div class="form-group">
-                        <label for="telefone">*Telefone (WhatsApp)</label>
-                        <input type="text" class="form-control telefone {{ $errors->has('telefone') ? 'is-invalid' : '' }} bg-transparent"
-                               name="telefone" id="telefone" value="{{ old('telefone') }}">
-                        @if($errors->has('telefone'))
-                            <div class=" {{$errors->has('telefone') ? 'invalid-feedback' : ''}}">{{$errors->first('telefone')}}</div>
-                        @endif
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="nome">*Nome Completo</label>--}}
+{{--                        <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }} bg-transparent"--}}
+{{--                               name="nome" id="nome" value="{{ old('nome') }}">--}}
+{{--                        @if($errors->has('nome'))--}}
+{{--                            <div class=" {{$errors->has('nome') ? 'invalid-feedback' : ''}}">{{$errors->first('nome')}}</div>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }} bg-transparent"
-                               name="email" id="email" value="{{ old('email') }}">
-                        @if($errors->has('email'))
-                            <div class="{{ $errors->has('email') ? 'invalid-feedback' : ''}}">{{$errors->first('email')}}</div>
-                        @endif
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="telefone">*Telefone (WhatsApp)</label>--}}
+{{--                        <input type="text" class="form-control telefone {{ $errors->has('telefone') ? 'is-invalid' : '' }} bg-transparent"--}}
+{{--                               name="telefone" id="telefone" value="{{ old('telefone') }}">--}}
+{{--                        @if($errors->has('telefone'))--}}
+{{--                            <div class=" {{$errors->has('telefone') ? 'invalid-feedback' : ''}}">{{$errors->first('telefone')}}</div>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+
+{{--                    <div class="form-group">--}}
+{{--                        <label for="email">Email</label>--}}
+{{--                        <input type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }} bg-transparent"--}}
+{{--                               name="email" id="email" value="{{ old('email') }}">--}}
+{{--                        @if($errors->has('email'))--}}
+{{--                            <div class="{{ $errors->has('email') ? 'invalid-feedback' : ''}}">{{$errors->first('email')}}</div>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
 
                     <div class="form-row">
 

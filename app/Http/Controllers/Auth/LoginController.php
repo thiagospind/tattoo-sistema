@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\UsuarioSistema;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Vinkla\Hashids\Facades\Hashids;
 
 class LoginController extends Controller
 {
@@ -46,15 +48,14 @@ class LoginController extends Controller
 //                Auth::logout();
 //                return redirect('/login')->with('msg','Por favor, confirme o seu email!');
 //            }
+            $idHash = Hashids::connection('main')->encode(Auth::user()->id);
+            $request->session()->put('idUsuHash', $idHash);
 
             return redirect()->intended('/');
         } else {
             Auth::logout();
             return redirect('/');
         }
-
-        $usuario = Auth::user();
-        echo $usuario;
     }
 
     /**

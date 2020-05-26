@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark ">
     <a class="navbar-brand" href="#">
         <img src="{!! asset('/img/logo_nova.png') !!}" width="auto" height="40" alt="">
-        May Pinheiro Tattoo
+{{--        May Pinheiro Tattoo--}}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
                 <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/orcamento"><i class="fas fa-comment-dollar"></i> Orçamento</a>
+                <a class="nav-link" href="/orcamento/lista/{{isset(Auth::user()->id) ? session('idUsuHash') : ''}}"><i class="fas fa-comment-dollar"></i> Orçamento</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-trophy"></i> Prêmios</a>
@@ -28,7 +28,7 @@
                                 Olá {{Auth::user()->nome}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/alterasenha">Alterar Senha</a>
+                            <a class="dropdown-item" href="/usuario/alterarsenha/{{ session('idUsuHash') }}">Alterar Senha</a>
                             <a class="dropdown-item" href="/logout">Sair</a>
 {{--                            <div class="dropdown-divider"></div>--}}
                         </div>

@@ -31,6 +31,6 @@ class HomeController extends Controller
     {
         Auth::logout();
         $usuario = Auth::user();
-        return redirect()->route('/');
+        return redirect('/');
     }
 }

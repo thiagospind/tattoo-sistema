@@ -123,6 +123,33 @@ class ControladorUsuario extends Controller
         //
     }
 
+    public function alterarSenha($idUsuario){
+        $idDecoded = Hashids::connection('main')->decode($idUsuario);
+        $usuario = UsuarioSistema::find($idDecoded[0]);
+        return view('auth.passwords.reset',compact('usuario'));
+    }
+
+    public function novaSenha(Request $request){
+        $request->validate([
+            'senha_atual' => ['required', 'string', 'min:8'],
+            'senha' => ['required', 'string', 'min:8', 'confirmed'],
+            'senha_confirmation' => ['required', 'string'],
+        ]);
+        $idUsuario = Hashids::connection('main')->decode($request->idUsuHash);
+        $usuario = UsuarioSistema::find($idUsuario[0]);
+        $senha_atual = $request->senha_atual;
+        if(isset($usuario)){
+            if(!Hash::check($senha_atual,$usuario->senha)){
+                return redirect()->back()->with('msg','A senha atual informada não coincide com a senha cadastrada!');
+            }
+
+            $usuario->senha = Hash::make($request->senha);
+            $usuario->save();
+
+            return redirect('/logout');
+        }
+    }
+
     public function confirmar($id){
         $idDecoded = Hashids::connection('main')->decode($id);
         $usuario = Usuario::find($idDecoded[0]);

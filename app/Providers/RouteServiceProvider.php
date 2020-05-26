@@ -29,18 +29,18 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
-        Route::bind('orcamento', function ($value, $route) {
-            return $this->getModel(Orcamento::class, $value);
-        });
+//        Route::bind('orcamento', function ($value, $route) {
+//            return $this->getModel(Orcamento::class, $value);
+//        });
     }
 
-    private function getModel($model, $routeKey)
-    {
-        $id = Hashids::connection($model)->decode($routeKey)[0] ?? null;
-        $modelInstance = resolve($model);
-
-        return  $modelInstance->findOrFail($id);
-    }
+//    private function getModel($model, $routeKey)
+//    {
+//        $id = Hashids::connection($model)->decode($routeKey)[0] ?? null;
+//        $modelInstance = resolve($model);
+//
+//        return  $modelInstance->findOrFail($id);
+//    }
     /**
      * Define the routes for the application.
      *

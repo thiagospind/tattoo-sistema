@@ -9,12 +9,12 @@ use Vinkla\Hashids\HashidsManager;
 class UsuarioSistema extends Model
 {
     protected $table = 'usuarios';
-    protected $hashids;
-
-    public function __construct(HashidsManager $hashids)
-    {
-        $this->hashids = $hashids;
-    }
+//    protected $hashids;
+//
+//    public function __construct(HashidsManager $hashids)
+//    {
+//        $this->hashids = $hashids;
+//    }
 
     public function hashId($id)
     {
@@ -22,4 +22,4 @@ class UsuarioSistema extends Model
     }
 }
 
-App::make('UsuarioSistema')->hashId();
+//App::make('UsuarioSistema')->hashId();

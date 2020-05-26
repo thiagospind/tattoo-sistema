@@ -34,13 +34,13 @@ class ControladorOrcamento extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($idHash)
     {
         if(Auth::check()){
-            $idUsuario = Hashids::decode($id);
-            $usuario = Usuario::find($idUsuario);
+            //$idUsuario = Hashids::decode($id);
+            //$usuario = Usuario::find($idUsuario);
 
-            return view('orcamento');
+            return view('orcamento',compact('idHash'));
         }
     }
 
@@ -63,21 +63,20 @@ class ControladorOrcamento extends Controller
                 'cor' => 'required',
                 'arquivo' => 'nullable|image|max:5120',
                 'descricao' => 'required|string',
-                'status' => 'Novo'
+                'status' => 'Novo',
+                'usuarios_id' => 'required'
             ]);
 
             $arquivo = $request->file('arquivo');
 
             $orcamento = new Orcamento();
 
-//            $orcamento->nome = $request->nome;
-//            $orcamento->telefone = $request->telefone;
-//            $orcamento->email = $request->email;
             $orcamento->tamanho_tattoo = $request->tamanho;
             $orcamento->parte_corpo = $request->parte_corpo;
             $orcamento->outra_parte = $request->outra_parte;
             $orcamento->cor = $request->cor;
             $orcamento->descricao = $request->descricao;
+            $orcamento->usuarios_id = Hashids::decode($request->usuarios_id)[0];
 
             if (isset($arquivo)) {
                 $path = $request->file('arquivo')->store('exemplos');
@@ -86,12 +85,13 @@ class ControladorOrcamento extends Controller
             $orcamento->status = 'Novo';
 
             $orcamento->save();
-            $titulo = 'Seu orçamento foi recebido!';
-            $msg = 'Em breve entraremos em contato com maiores informações sobre a sua tatuagem! 
-                    Muito obrigado pelo contato. Você será redirecionado para a página principal em cinco segundos!';
-            $cor = 'text-white';
+//            $titulo = 'Seu orçamento foi recebido!';
+//            $msg = 'Em breve entraremos em contato com maiores informações sobre a sua tatuagem!
+//                    Muito obrigado pelo contato. Você será redirecionado para a página principal em cinco segundos!';
+//            $cor = 'text-white';
 
-            return view('redirect',compact('titulo','msg','cor'));
+//            return view('redirect',compact('titulo','msg','cor'));
+            return redirect('/orcamento/lista/'.$request->usuarios_id);
 //        } catch (\Exception $exception){
 //
 //        }
@@ -146,9 +146,17 @@ class ControladorOrcamento extends Controller
     }
 
     public function listaOrcamento($idUsuario){
-        $orcamentos = Orcamento::where('usuarios_id','=',$idUsuario)
-            ->orderBy('created_at','desc')
+//        $orcamentos = Orcamento::where('usuarios_id','=',$idUsuario)
+//            ->orderBy('created_at','desc')
+//            ->get();
+        $orcamentos = Orcamento::join('usuarios','usuarios.id','=','orcamentos.usuarios_id')
+            ->leftJoin('financeiros','financeiros.orcamentos_id','=','orcamentos.id')
+            ->select('orcamentos.tamanho_tattoo','orcamentos.parte_corpo','orcamentos.outra_parte','orcamentos.cor',
+                    'orcamentos.descricao','orcamentos.imagem_exemplo','orcamentos.status','orcamentos.created_at')
+            ->where('usuarios_id','=',$idUsuario)
+            ->orderBy('orcamentos.created_at','desc')
             ->get();
-        return view('listaOrcamento',compact('orcamentos'));
+        $idHash = Hashids::connection('main')->encode($idUsuario);
+        return view('listaOrcamento',compact('orcamentos','idHash'));
     }
 }
