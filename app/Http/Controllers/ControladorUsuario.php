@@ -21,7 +21,7 @@ class ControladorUsuario extends Controller
     public function index()
     {
         $usuarios = UsuarioSistema::paginate(10)->sortBy('nome');
-        return view('usuarios',compact('usuarios'));
+        return view('listaUsuario',compact('usuarios'));
     }
 
     /**

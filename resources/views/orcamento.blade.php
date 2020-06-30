@@ -51,7 +51,7 @@
 
                     <div class="form-row">
 
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-12">
                             <label for="parte_corpo">*Parte do Corpo</label>
                             <select class="form-control parte_corpo {{ $errors->has('parte_corpo') ? 'is-invalid' : '' }} bg-transparent text-white"
                                     name="parte_corpo" id="parte_corpo">
@@ -70,14 +70,14 @@
                                 <option value="Perna" {{old('parte_corpo') === 'Panturrilha' ? 'selected' : ''}}>Panturrilha</option>
                                 <option value="Pulso" {{old('parte_corpo') === 'Pulso' ? 'selected' : ''}}>Pulso</option>
                                 <option value="Tornozelo" {{old('parte_corpo') === 'Tornozelo' ? 'selected' : ''}}>Tornozelo</option>
-                                <option value="Outra" {{old('parte_corpo') === 'Outra' ? 'selected' : ''}}>Outra (especifique ao lado)</option>
+                                <option value="Outra" {{old('parte_corpo') === 'Outra' ? 'selected' : ''}}>Outra (especifique abaixo)</option>
                             </select>
                             @if($errors->has('parte_corpo'))
                                 <div class=" {{$errors->has('parte_corpo') ? 'invalid-feedback' : ''}}">{{$errors->first('parte_corpo')}}</div>
                             @endif
                         </div>
 
-                        <div class="form-group col-sm-8">
+                        <div class="form-group col-12">
                             <label for="outra_parte" class="outra_parte" hidden>Outra Parte do Corpo (Especifique)</label>
                             <input type="text" class="form-control outra_parte {{ $errors->has('outra_parte') ? 'is-invalid' : '' }} bg-transparent"
                                    value="{{old('outra_parte')}}" name="outra_parte" id="outra_parte" hidden>
@@ -88,17 +88,32 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tamanho">*Tamanho da Tatuagem</label>
-                        <input type="text" class="form-control {{ $errors->has('tamanho') ? 'is-invalid' : '' }} bg-transparent"
-                               name="tamanho" id="tamanho" value="{{ old('tamanho') }}" aria-describedby="descricaoTamanho"
-                               placeholder="Exemplo: 7x4cm">
-                        @if($errors->has('tamanho'))
-                            <div class=" {{$errors->has('tamanho') ? 'invalid-feedback' : ''}}">{{$errors->first('tamanho')}}</div>
-                        @endif
-                        <small id="descricaoTamanho" class="form-text text-muted">
-                            Informe o tamanho da tatuagem (largura e comprimento) em centímetros (cm).
-                        </small>
-
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="altura">*Altura da Tatuagem</label>
+                                <input type="text" class="form-control {{ $errors->has('altura') ? 'is-invalid' : '' }} bg-transparent"
+                                       name="altura" id="altura" value="{{ old('altura') }}" aria-describedby="descricaoAltura"
+                                       placeholder="Exemplo: 10">
+                                @if($errors->has('altura'))
+                                    <div class=" {{$errors->has('altura') ? 'invalid-feedback' : ''}}">{{$errors->first('altura')}}</div>
+                                @endif
+                                <small id="descricaoAltura" class="form-text text-muted">
+                                    Informe a altura da tatuagem em centímetros (cm).
+                                </small>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="largura">*Largura da Tatuagem</label>
+                                <input type="text" class="form-control {{ $errors->has('largura') ? 'is-invalid' : '' }} bg-transparent"
+                                       name="largura" id="largura" value="{{ old('largura') }}" aria-describedby="descricaoLargura"
+                                       placeholder="Exemplo: 7">
+                                @if($errors->has('largura'))
+                                    <div class=" {{$errors->has('largura') ? 'invalid-feedback' : ''}}">{{$errors->first('largura')}}</div>
+                                @endif
+                                <small id="descricaoLargura" class="form-text text-muted">
+                                    Informe a largura da tatuagem em centímetros (cm).
+                                </small>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">

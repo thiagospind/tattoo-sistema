@@ -98,7 +98,7 @@
                                                     <div class="form-group col-sm-12 col-md-6 col-lg-3">
                                                         <label>Tamanho</label>
                                                         <input class="form-control bg-transparent"
-                                                               value="{{$orc->tamanho_tattoo}}" disabled>
+                                                               value="{{$orc->altura . 'x' . $orc->largura}}" disabled>
                                                     </div>
                                                     <div class="form-group col-sm-12 col-md-6 col-lg-3">
                                                         <label>Cor</label>

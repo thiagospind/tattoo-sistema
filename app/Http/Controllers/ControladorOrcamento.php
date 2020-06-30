@@ -60,7 +60,8 @@ class ControladorOrcamento extends Controller
 //                'email' => 'email|nullable',
                 'parte_corpo' => 'required',
                 'outra_parte' => 'required_if:parte_corpo,Outra',
-                'tamanho' => 'required',
+                'largura' => 'required|numeric|min:3',
+                'altura' => 'required|numeric|min:3',
                 'cor' => 'required',
                 'arquivos.*' => 'nullable|image|max:5120',
                 'descricao' => 'required|string',
@@ -72,7 +73,8 @@ class ControladorOrcamento extends Controller
 
             $orcamento = new Orcamento();
 
-            $orcamento->tamanho_tattoo = $request->tamanho;
+            $orcamento->altura = $request->altura;
+            $orcamento->largura = $request->largura;
             $orcamento->parte_corpo = $request->parte_corpo;
             $orcamento->outra_parte = $request->outra_parte;
             $orcamento->cor = $request->cor;
@@ -87,12 +89,15 @@ class ControladorOrcamento extends Controller
 
             $orcamento->save();
 
-            foreach ($arquivos as $arquivo){
-                $imagem = new Imagem();
-                $imagem->orcamentos_id = $orcamento->id;
-                $imagem->imagem_exemplo = $arquivo->store('exemplos');
-                $imagem->save();
+            if (isset($arquivos)){
+                foreach ($arquivos as $arquivo){
+                    $imagem = new Imagem();
+                    $imagem->orcamentos_id = $orcamento->id;
+                    $imagem->imagem_exemplo = $arquivo->store('exemplos');
+                    $imagem->save();
+                }
             }
+
 //            $titulo = 'Seu orçamento foi recebido!';
 //            $msg = 'Em breve entraremos em contato com maiores informações sobre a sua tatuagem!
 //                    Muito obrigado pelo contato. Você será redirecionado para a página principal em cinco segundos!';
@@ -160,7 +165,7 @@ class ControladorOrcamento extends Controller
         $idDecoded = Hashids::decode($idUsuario)[0];
         $orcamentos = Orcamento::join('usuarios','usuarios.id','=','orcamentos.usuarios_id')
             ->leftJoin('financeiros','financeiros.orcamentos_id','=','orcamentos.id')
-            ->select('orcamentos.tamanho_tattoo','orcamentos.parte_corpo','orcamentos.outra_parte','orcamentos.cor',
+            ->select('orcamentos.altura','orcamentos.largura','orcamentos.parte_corpo','orcamentos.outra_parte','orcamentos.cor',
                     'orcamentos.descricao','orcamentos.imagem_exemplo','orcamentos.status','orcamentos.created_at')
             ->where('usuarios_id','=',$idDecoded)
             ->orderBy('orcamentos.created_at','desc')

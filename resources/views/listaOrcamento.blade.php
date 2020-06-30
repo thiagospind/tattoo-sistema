@@ -16,24 +16,24 @@
 {{--                    <div class="row no-gutters">--}}
 {{--                        <div class="col-md-12">--}}
                             <div class="card-body">
-                                <div class="circulo-card">
-                                    <i class="h5 far fa-clock"> Em análise</i>
-                                </div>
+{{--                                <div class="circulo-card">--}}
+{{--                                    <i class="h5 far fa-clock"> Em análise</i>--}}
+{{--                                </div>--}}
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <p>{{ $orcamento->descricao }}</p>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-sm-6 col-md-3 ">
+                                    <div class="form-group col-4 col-md-3 ">
                                         <label>Data</label>
                                         <p>{{ date_format($orcamento->created_at,'d/m/Y') }}</p>
                                     </div>
-                                    <div class="form-group col-sm-6 col-md-3 ">
+                                    <div class="form-group col-4 col-md-3 ">
                                         <label>Tamanho</label>
-                                        <p>{{ $orcamento->tamanho_tattoo }}</p>
+                                        <p>{{ $orcamento->altura . 'x' . $orcamento->largura .'cm' }}</p>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-4 col-md-3">
                                         <label>Parte Corpo</label>
                                         <p>{{ $orcamento->parte_corpo }}</p>
                                     </div>
