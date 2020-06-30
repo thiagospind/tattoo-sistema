@@ -123,9 +123,19 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="form-group">
-                            <label for="arquivo">Selecione uma imagem de referência (Tamanho máximo de 5mb).</label>
-                            <input type="file" class="form-control-file bg-transparent" id="arquivo" name="arquivo">
+{{--                        <div class="form-group">--}}
+{{--                            <label for="arquivo">Selecione uma imagem de referência (Tamanho máximo de 5mb).</label>--}}
+{{--                            <input type="file" class="form-control-file bg-transparent" id="arquivo" name="arquivos[]">--}}
+{{--                        </div>--}}
+                        <div class="input-group mb-3">
+{{--                            <div class="input-group-prepend">--}}
+{{--                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>--}}
+{{--                            </div>--}}
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="arquivos" name="arquivos[]" multiple="multiple"
+                                       aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="arquivos">Escolher arquivo</label>
+                            </div>
                         </div>
                         {{--<div class="custom-file">--}}
                             {{--<input type="file" class="custom-file-input bg-transparent {{ $errors->has('arquivo') ? 'is-invalid' : '' }} "--}}
@@ -160,5 +170,6 @@
                 </form>
             </div>
         </div>
+
 {{--        </div>--}}
 @endsection

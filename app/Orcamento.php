@@ -16,6 +16,10 @@ class Orcamento extends Model
         return Hashids::encode($this->id);
     }
 
+    function imagem(){
+        return $this->hasMany('App\Imagem','orcamentos_id','id');
+    }
+
 
 //    public function __get($key)
 //    {

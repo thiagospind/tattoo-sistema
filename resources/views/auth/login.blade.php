@@ -42,6 +42,8 @@
     <label for="senha" class="sr-only">Senha</label>
     <input  id="password" name="password" type="password" class="form-control text-white bg-transparent" placeholder="Senha...">
     <a class="text-white" href="#"><i class="fas fa-key"></i> Esqueci a senha...</a>
+    <br>
+    <a class="text-white" href="/usuario"><i class="fas fa-key"></i> Cadastrar...</a>
 {{--    <div class="checkbox mb-3">--}}
 {{--        <label>--}}
 {{--            <input type="checkbox" value="remember-me"> Remember me--}}

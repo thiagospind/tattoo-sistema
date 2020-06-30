@@ -155,7 +155,13 @@ class ControladorUsuario extends Controller
         $usuario = Usuario::find($idDecoded[0]);
         if(isset($usuario) && !isset($usuario->email_verified_at)){
             $usuario->email_verified_at = Carbon::now();
+            $usuario->status = 1;
             $usuario->save();
         }
+
+        $titulo = 'Seu usuário foi Ativado!';
+        $msg = '';
+        $cor = 'text-white';
+        return view('redirect',compact('titulo','msg','cor'));
     }
 }
